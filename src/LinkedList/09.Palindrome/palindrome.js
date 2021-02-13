@@ -23,11 +23,9 @@ const endOfFirstHalf = (head) => {
 const palindrome = (head) => {
   if (head == null) return true;
 
-  // 找到前半部分链表的尾节点并反转后半部分链表
   const firstHalfEnd = endOfFirstHalf(head);
   const secondHalfStart = reverseList(firstHalfEnd.next);
 
-  // 判断是否回文
   let p1 = head;
   let p2 = secondHalfStart;
   let result = true;
@@ -37,7 +35,6 @@ const palindrome = (head) => {
     p2 = p2.next;
   }
 
-  // 还原链表并返回结果
   firstHalfEnd.next = reverseList(secondHalfStart);
   return result;
 };
