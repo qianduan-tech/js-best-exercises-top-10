@@ -1,16 +1,20 @@
 /**
  * BFS
  */
-const rightSideView = (root) => {
+const leftSideView = (root) => {
   if (!root) return [];
   const queue = [root];
   const result = [];
 
   while (queue.length) {
     let len = queue.length;
+    let first = true;
     while (len) {
       const node = queue.shift();
-      if (len === 1) result.push(node.val);
+      if (first) {
+        result.push(node.val);
+        first = false;
+      }
       if (node.left) queue.push(node.left);
       if (node.right) queue.push(node.right);
       len -= 1;
@@ -19,4 +23,4 @@ const rightSideView = (root) => {
   return result;
 };
 
-export default rightSideView;
+export default leftSideView;
