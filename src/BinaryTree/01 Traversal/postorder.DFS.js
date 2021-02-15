@@ -1,7 +1,5 @@
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Array} arr
  */
 const postorder = (root, arr = []) => {
   if (root) {

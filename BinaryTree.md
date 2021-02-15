@@ -39,8 +39,6 @@ Given the root of a binary tree, return the inorder/preorder/postorder/levelOrde
 ``` javascript
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Array} arr
  */
 const inorder = (root, arr = []) => {
   if (root) {
@@ -49,6 +47,26 @@ const inorder = (root, arr = []) => {
     inorder(root.right, arr);
   }
   return arr;
+};
+```
+
+``` javascript
+/**
+ * BFS
+ */
+const inorder = (root) => {
+  const stack = [];
+  const result = [];
+  while (root || stack.length) {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop();
+    result.push(root.val);
+    root = root.right;
+  }
+  return result;
 };
 ```
 
@@ -70,6 +88,26 @@ const preorder = (root, arr = []) => {
 };
 ```
 
+``` javascript
+/**
+ * BFS
+ */
+const preorder = (root) => {
+  const stack = [];
+  const result = [];
+  while (root || stack.length) {
+    while (root) {
+      stack.push(root);
+      result.push(root.val);
+      root = root.left;
+    }
+    root = stack.pop();
+    root = root.right;
+  }
+  return result;
+};
+```
+
 **Postorder**
 
 ``` javascript
@@ -88,6 +126,33 @@ const postorder = (root, arr = []) => {
 };
 ```
 
+``` javascript
+/**
+ * BFS
+ */
+const postorder = (root) => {
+  const stack = [];
+  const result = [];
+
+  let prev;
+  while (root || stack.length) {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop();
+    if (!root.right || root.right === prev) {
+      result.push(root.val);
+      prev = root;
+      root = null;
+    } else {
+      stack.push(root);
+      root = root.right;
+    }
+  }
+  return result;
+};
+```
 **Level Order** - from left to right, level by level.
 
 ``` javascript
@@ -111,13 +176,13 @@ const levelOrder = (root, level = 0, arr = []) => {
 ``` javascript
 /**
  * BFS
- * @param {TreeNode} root
  */
 const levelOrder = (root) => {
   if (!root) return [];
   const queue = [root];
-  const res = [];
-  while (queue.length > 0) {
+  const result = [];
+
+  while (queue.length) {
     let len = queue.length;
     const arr = [];
     while (len) {
@@ -127,12 +192,11 @@ const levelOrder = (root) => {
       if (node.right) queue.push(node.right);
       len -= 1;
     }
-    res.push(arr);
+    result.push(arr);
   }
-  return res;
+  return result;
 };
 ```
-
 ## 02. Depth
 
 Given the root of a binary tree, return its maximum/minimum depth.

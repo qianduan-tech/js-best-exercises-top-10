@@ -1,7 +1,6 @@
 /**
  * DFS
  * @param {TreeNode} root
- * @param {Array} arr
  */
 const inorder = (root, arr = []) => {
   if (root) {

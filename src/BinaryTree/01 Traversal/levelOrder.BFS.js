@@ -1,12 +1,12 @@
 /**
  * BFS
- * @param {TreeNode} root
  */
 const levelOrder = (root) => {
   if (!root) return [];
   const queue = [root];
-  const res = [];
-  while (queue.length > 0) {
+  const result = [];
+
+  while (queue.length) {
     let len = queue.length;
     const arr = [];
     while (len) {
@@ -16,9 +16,9 @@ const levelOrder = (root) => {
       if (node.right) queue.push(node.right);
       len -= 1;
     }
-    res.push(arr);
+    result.push(arr);
   }
-  return res;
+  return result;
 };
 
 export default levelOrder;

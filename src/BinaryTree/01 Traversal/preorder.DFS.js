@@ -1,7 +1,5 @@
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Array} arr
  */
 const preorder = (root, arr = []) => {
   if (root) {

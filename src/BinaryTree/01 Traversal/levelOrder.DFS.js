@@ -1,8 +1,5 @@
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Number} level
- * @param {Array} arr
  */
 const levelOrder = (root, level = 0, arr = []) => {
   if (root) {
