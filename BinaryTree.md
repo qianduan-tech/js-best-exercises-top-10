@@ -110,7 +110,7 @@ const levelOrder = (root, level = 0, arr = []) => {
 
 ``` javascript
 /**
- * DFS
+ * BFS
  * @param {TreeNode} root
  */
 const levelOrder = (root) => {

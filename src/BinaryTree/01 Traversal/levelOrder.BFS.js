@@ -1,5 +1,5 @@
 /**
- * DFS
+ * BFS
  * @param {TreeNode} root
  */
 const levelOrder = (root) => {
