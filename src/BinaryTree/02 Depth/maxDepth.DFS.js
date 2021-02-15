@@ -1,6 +1,5 @@
 /**
  * DFS
- * @param {TreeNode} root
  */
 const maxDepth = (root) => {
   if (!root) return 0;

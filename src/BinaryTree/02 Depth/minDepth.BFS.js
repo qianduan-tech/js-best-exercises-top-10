@@ -1,26 +1,22 @@
 /**
  * BFS
- * @param {TreeNode} root
  */
 const minDepth = (root) => {
-  if (root == null) return 0;
-
+  if (!root) return 0;
   const queue = [root];
-  let depth = 1;
-
+  let level = 1;
   while (queue.length) {
-    const levelSize = queue.length;
-    for (let i = 0; i < levelSize; i += 1) {
-      const cur = queue.shift();
-      if (cur.left == null && cur.right == null) {
-        return depth;
-      }
-      if (cur.left) queue.push(cur.left);
-      if (cur.right) queue.push(cur.right);
+    let len = queue.length;
+    while (len) {
+      const node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right)queue.push(node.right);
+      if (!node.left && !node.right) return level;
+      len -= 1;
     }
-    depth += 1;
+    level += 1;
   }
-  return 0;
+  return level;
 };
 
 export default minDepth;

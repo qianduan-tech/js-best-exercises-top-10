@@ -75,8 +75,6 @@ const inorder = (root) => {
 ``` javascript
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Array} arr
  */
 const preorder = (root, arr = []) => {
   if (root) {
@@ -113,8 +111,6 @@ const preorder = (root) => {
 ``` javascript
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Array} arr
  */
 const postorder = (root, arr = []) => {
   if (root) {
@@ -158,9 +154,6 @@ const postorder = (root) => {
 ``` javascript
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Number} level
- * @param {Array} arr
  */
 const levelOrder = (root, level = 0, arr = []) => {
   if (root) {
@@ -206,7 +199,6 @@ Given the root of a binary tree, return its maximum/minimum depth.
 ``` javascript
 /**
  * DFS
- * @param {TreeNode} root
  */
 const maxDepth = (root) => {
   if (!root) return 0;
@@ -217,20 +209,17 @@ const maxDepth = (root) => {
 ``` javascript
 /**
  * BFS
- * @param {TreeNode} root
  */
 const maxDepth = (root) => {
-  let level = 0;
-  if (root == null) {
-    return level;
-  }
+  if (!root) return 0;
   const queue = [root];
+  let level = 0;
   while (queue.length) {
     let len = queue.length;
     while (len) {
-      const curNode = queue.pop();
-      if (curNode.left)queue.unshift(curNode.left);
-      if (curNode.right) queue.unshift(curNode.right);
+      const node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
       len -= 1;
     }
     level += 1;
@@ -244,8 +233,6 @@ const maxDepth = (root) => {
 ``` javascript
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Number} min
  */
 const minDepth = (root, min = Infinity) => {
   if (!root) return 0;
@@ -264,27 +251,23 @@ const minDepth = (root, min = Infinity) => {
 ``` javascript
 /**
  * BFS
- * @param {TreeNode} root
  */
 const minDepth = (root) => {
-  if (root == null) return 0;
-
+  if (!root) return 0;
   const queue = [root];
-  let depth = 1;
-
+  let level = 1;
   while (queue.length) {
-    const levelSize = queue.length;
-    for (let i = 0; i < levelSize; i += 1) {
-      const cur = queue.shift();
-      if (cur.left == null && cur.right == null) {
-        return depth;
-      }
-      if (cur.left) queue.push(cur.left);
-      if (cur.right) queue.push(cur.right);
+    let len = queue.length;
+    while (len) {
+      const node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right)queue.push(node.right);
+      if (!node.left && !node.right) return level;
+      len -= 1;
     }
-    depth += 1;
+    level += 1;
   }
-  return 0;
+  return level;
 };
 ```
 

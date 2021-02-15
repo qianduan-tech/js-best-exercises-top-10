@@ -1,7 +1,5 @@
 /**
  * DFS
- * @param {TreeNode} root
- * @param {Number} min
  */
 const minDepth = (root, min = Infinity) => {
   if (!root) return 0;

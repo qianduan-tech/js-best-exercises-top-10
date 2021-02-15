@@ -1,19 +1,16 @@
 /**
  * BFS
- * @param {TreeNode} root
  */
 const maxDepth = (root) => {
-  let level = 0;
-  if (root == null) {
-    return level;
-  }
+  if (!root) return 0;
   const queue = [root];
+  let level = 0;
   while (queue.length) {
     let len = queue.length;
     while (len) {
-      const curNode = queue.pop();
-      if (curNode.left)queue.unshift(curNode.left);
-      if (curNode.right) queue.unshift(curNode.right);
+      const node = queue.shift();
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
       len -= 1;
     }
     level += 1;
