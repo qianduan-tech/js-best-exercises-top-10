@@ -1,5 +1,5 @@
 /**
- * BFS
+ * iteration
  */
 const levelOrder = (root) => {
   if (!root) return [];

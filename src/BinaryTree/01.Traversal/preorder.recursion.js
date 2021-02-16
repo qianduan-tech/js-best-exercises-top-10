@@ -1,5 +1,5 @@
 /**
- * DFS
+ * recursion
  */
 const preorder = (root, arr = []) => {
   if (root) {

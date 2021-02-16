@@ -1,5 +1,5 @@
 /**
- * BFS
+ * iteration
  */
 const inorder = (root) => {
   const stack = [];

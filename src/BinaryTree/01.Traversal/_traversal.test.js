@@ -1,12 +1,12 @@
 import { TreeNode } from '../utils';
-import inorderDFS from './inorder.DFS';
-import inorderBFS from './inorder.BFS';
-import preorderDFS from './preorder.DFS';
-import preorderBFS from './preorder.BFS';
-import postorderDFS from './postorder.DFS';
-import postorderBFS from './postorder.BFS';
-import levelOrderDFS from './levelOrder.DFS';
-import levelOrderBFS from './levelOrder.BFS';
+import inorderDFS from './inorder.recursion';
+import inorderBFS from './inorder.iteration';
+import preorderDFS from './preorder.recursion';
+import preorderBFS from './preorder.iteration';
+import postorderDFS from './postorder.recursion';
+import postorderBFS from './postorder.iteration';
+import levelOrderDFS from './levelOrder.recursion';
+import levelOrderBFS from './levelOrder.iteration';
 
 test('traversal', () => {
   const tree = new TreeNode(1);

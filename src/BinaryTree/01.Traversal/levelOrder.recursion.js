@@ -1,5 +1,5 @@
 /**
- * DFS
+ * recursion
  */
 const levelOrder = (root, level = 0, arr = []) => {
   if (root) {

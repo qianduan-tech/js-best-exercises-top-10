@@ -1,5 +1,5 @@
 /**
- * DFS
+ * recursion
  * @param {TreeNode} root
  */
 const inorder = (root, arr = []) => {

@@ -1,5 +1,5 @@
 /**
- * DFS
+ * recursion
  */
 const postorder = (root, arr = []) => {
   if (root) {

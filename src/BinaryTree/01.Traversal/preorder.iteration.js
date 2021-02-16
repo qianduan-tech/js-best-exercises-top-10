@@ -1,5 +1,5 @@
 /**
- * BFS
+ * iteration
  */
 const preorder = (root) => {
   const stack = [];

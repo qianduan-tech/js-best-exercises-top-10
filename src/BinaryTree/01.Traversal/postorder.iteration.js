@@ -1,5 +1,5 @@
 /**
- * BFS
+ * iteration
  */
 const postorder = (root) => {
   const stack = [];
